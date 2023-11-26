@@ -1,0 +1,20 @@
+{
+    "name": "ivo/framework",
+    "autoload": {
+        "psr-4": {
+            "Ivo\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zlatnii",
+            "email": "zlatunic.ivo@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "app\\":"./"
+        }
+    },
+    "require": {}
+}
