@@ -3,16 +3,16 @@
 require_once __DIR__.'/../vendor/autoload.php'; //Included autoload
 
 use app\core\Application; //Include Application class;
+use app\controllers\SiteController;
 
+$app = new Application(dirname(__DIR__)); //Creating new object with root directory
 
-$app = new Application(); //Create Application class in Core directory
+$app->router->get('/', 'home');
 
-$app->router->get('/', function(){    //Explanation: If GET request is made on '/' it should execute following function...
-    return "Hello world!";
-});
+$app->router->get('/contact', [SiteController::class, 'contact']);
 
-$app->router->get('/contact', function(){    //Explanation: If GET request is made on '/' it should execute following function...
-    return "Contact";
-});
+$app->router->post('/contact', [SiteController::class, 'handleContact']);
+
+$app->router->get('/about', 'about');
 
 $app->run();
