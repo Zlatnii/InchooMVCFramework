@@ -6,6 +6,7 @@ namespace app\core;
 
 use app\core\Request;
 use app\core\Response;
+use app\core\Controller;
 
 class Application
 
@@ -15,6 +16,7 @@ class Application
     public Router $router;
     public Response $response;
     public static Application $app;
+    public Controller $controller;
     public function __construct($rootPath)
     {
         self::$ROOT_DIR = $rootPath;
@@ -27,5 +29,15 @@ class Application
     public function run()
     {
       echo  $this->router->resolve();
+    }
+
+    public function getController()
+    {
+      return $this->controller;
+    }
+
+    public function setController(Controller $controller)
+    {
+      $this->controller = $controller;
     }
 }
